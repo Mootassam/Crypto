@@ -1,11 +1,34 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 
 function Cryptocurrencies(props) {
   const { id } = props;
-  return <div>
-    Cryptocurrencies
-    
-    {props.id}</div>;
+
+  const [response, setResponse] = useState([]);
+
+  const searchAllCoins = async () => {
+    try {
+      const data = await axios.get(
+        `http://localhost:8080/api/exchange/cryptocurrencies/${props.id}`
+      );
+      setResponse(data.data.coins);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  useEffect(() => {
+    searchAllCoins();
+  }, [props.id]);
+  return (
+    <div>
+      Cryptocurrencies
+      {response.map((item) => (
+        <p>{item.name}</p>
+      ))}
+      {props.id}
+    </div>
+  );
 }
 
 export default Cryptocurrencies;
