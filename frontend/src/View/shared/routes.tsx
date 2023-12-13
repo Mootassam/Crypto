@@ -15,8 +15,17 @@ const privateRoutes = [
     exact: true,
   },
   {
+    path: "/exchange/:id",
+    loader: () => import("../pages/Exchange/exchangePage"),
+  },
+  {
+    path: "/coin/:id",
+    loader: () => import("../pages/Coin/coin"),
+    exact: true,
+  },
+  {
     path: "/profile",
-    loader: () => import("../pages/Portfolio/Portfolio"),
+    loader: () => import("../pages/Auth/Profile"),
     exact: true,
   },
 ];
@@ -28,10 +37,6 @@ const publicRoutes = [
   {
     path: "/auth/signup",
     loader: () => import("../pages/Auth/Signup"),
-  },
-  {
-    path: "/profile",
-    loader: () => import("../pages/Auth/Profile"),
   },
 ];
 const simpleRoute = [{}];

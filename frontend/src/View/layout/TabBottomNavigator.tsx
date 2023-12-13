@@ -4,10 +4,18 @@ import { Link } from "react-router-dom";
 function TabBottomNavigator() {
   return (
     <div className="tabbottomNavigator">
-      <Link to="/">Markets</Link>
-      <Link to="/portfolio">Portfolio</Link>
-      <Link to="/search">Search</Link>
-      <Link to="/profile">Profile</Link>
+      <Link to="/" style={{ color: "white", textDecoration: "none" }}>
+        Markets
+      </Link>
+      <Link to="/portfolio" style={{ color: "white", textDecoration: "none" }}>
+        Portfolio
+      </Link>
+      <Link to="/search" style={{ color: "white", textDecoration: "none" }}>
+        Search
+      </Link>
+      <Link to="/profile" style={{ color: "white", textDecoration: "none" }}>
+        Profile
+      </Link>
     </div>
   );
 }

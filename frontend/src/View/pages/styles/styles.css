@@ -1,0 +1,9 @@
+/* styling the page of the coin */
+.coin__menue {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background-color: aqua;
+  padding: 10px;
+}
