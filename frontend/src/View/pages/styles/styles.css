@@ -7,3 +7,86 @@
   background-color: aqua;
   padding: 10px;
 }
+
+/* Portfolio */
+
+.content__portfolio {
+}
+.portfolio__dashboard {
+  background-color: aquamarine;
+  width: 100%;
+
+  border-radius: 5px;
+  margin-top: 5px;
+  padding: 10px 5px;
+}
+
+.profile__firstlinge {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.change,
+.loss {
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.portfolio__options {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 5px;
+}
+
+/* stlying the profile  */
+
+.app__profile {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  flex-direction: column;
+}
+
+.app__profile > h3 {
+  text-align: center;
+}
+
+.profile__box {
+  background-color: brown;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  margin-top: 15px;
+  padding: 20px;
+}
+
+.profile__logout {
+  display: flex;
+  align-items: center;
+  background-color: cadetblue;
+  margin-top: 15px;
+  text-align: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+/* stlying the explore page */
+
+.explore__title {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.explore__header {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  background-color: aqua;
+  justify-content: space-between;
+  padding: 10px;
+}

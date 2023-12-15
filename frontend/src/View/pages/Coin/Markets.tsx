@@ -4,7 +4,9 @@ import React, { useState, useEffect } from "react";
 function Markets(props) {
   const [response, setReponse] = useState([]);
   const searchAllCoins = async () => {
-    const data = await axios.get(`http://localhost:8080/api/coins/markets/${props.id}`);
+    const data = await axios.get(
+      `http://localhost:8080/api/coins/markets/${props.id}`
+    );
     setReponse(data.data.markets);
   };
   useEffect(() => {
@@ -21,9 +23,23 @@ function Markets(props) {
       </div>
       Markets {props.id}
       {response.map((item) => (
-        <div className="">
-          <img src={item.exchange.iconUrl} alt="" width={20} height={20} />
-          {item.exchange.name}
+        <div
+          className=""
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            textAlign: "end",
+          }}
+        >
+          <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
+            <img src={item.exchange.iconUrl} alt="" width={30} height={30} />
+            {item.exchange.name}
+          </div>
+          <div>
+            <p>{item["24hVolume"]}</p>
+      
+            {item.price}
+          </div>
         </div>
       ))}
     </div>

@@ -11,10 +11,13 @@ function TabBottomNavigator() {
         Portfolio
       </Link>
       <Link to="/search" style={{ color: "white", textDecoration: "none" }}>
-        Search
+        Trades
+      </Link>
+      <Link to="/explore" style={{ color: "white", textDecoration: "none" }}>
+        Explore
       </Link>
       <Link to="/profile" style={{ color: "white", textDecoration: "none" }}>
-        Profile
+        Account
       </Link>
     </div>
   );

@@ -24,6 +24,16 @@ const privateRoutes = [
     exact: true,
   },
   {
+    path: "/explore",
+    loader: () => import("../pages/Explore/ExplorePage"),
+    exact: true,
+  },
+  {
+    path: "/explore/detail/:id",
+    loader: () => import("../pages/Explore/View/viewdetailTopic"),
+    exact: true,
+  },
+  {
     path: "/profile",
     loader: () => import("../pages/Auth/Profile"),
     exact: true,

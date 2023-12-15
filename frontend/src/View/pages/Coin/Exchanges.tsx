@@ -46,10 +46,25 @@ function Exchanges(props) {
       </div>
       <br />
       {response.map((item) => (
-        <Link to={`/exchange/${item.uuid}`}>
-          <div key={item.id} className="">
-            <img src={item.iconUrl} alt="" width={20} height={20} />
-            {item.name}
+        <Link to={`/exchange/${item.uuid}`} style={{ textDecoration: "none" }}>
+          <div
+            key={item.id}
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              textAlign: "end",
+              marginBottom: 15,
+            }}
+          >
+            <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
+              <img src={item.iconUrl} alt="" width={30} height={30} />
+              {item.name}
+            </div>
+
+            <div>
+              <p>{item["24hVolume"]}</p>
+              {item.price}
+            </div>
           </div>
         </Link>
       ))}
