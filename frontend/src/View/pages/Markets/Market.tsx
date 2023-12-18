@@ -12,7 +12,7 @@ import {
 function Market() {
   const [response, setReponse] = useState([]);
   const searchAllCoins = async () => {
-    const data = await axios.get("http://localhost:8080/api/coins");
+    const data = await axios.get("http://192.168.3.16:8080/api/coins");
     setReponse(data.data.coins);
   };
   useEffect(() => {

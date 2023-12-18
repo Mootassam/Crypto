@@ -51,10 +51,12 @@
 
 .app__profile > h3 {
   text-align: center;
+  font-size: 20px;
+  color: #b1b4c3;
 }
 
 .profile__box {
-  background-color: brown;
+  background-color: #b1b4c3;
   display: flex;
   flex-direction: column;
   border-radius: 5px;
@@ -62,15 +64,45 @@
   padding: 20px;
 }
 
+.account__circle {
+  background-color: antiquewhite;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.ligne__profile {
+  display: grid;
+  flex-direction: row;
+  grid-template-columns: 50px auto;
+  align-items: center;
+  gap: 23px;
+  padding-top: 18px;
+}
+
+.circle__detail {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.box__ligne {
+  border-bottom: 1.3px solid #ebebeb;
+  width: 87%;
+  align-self: flex-end;
+}
+
 .profile__logout {
   display: flex;
   align-items: center;
-  background-color: cadetblue;
+  background-color: rgb(183, 27, 27);
   margin-top: 15px;
   text-align: center;
   justify-content: center;
-  padding: 10px;
-  border-radius: 15px;
+  padding: 15px;
+  border-radius: 35px;
+  color: white;
 }
 
 /* stlying the explore page */
@@ -89,4 +121,113 @@
   background-color: aqua;
   justify-content: space-between;
   padding: 10px;
+}
+
+/* styling the trading view  */
+
+.tradingview-widget-container {
+  height: 330px; /* Set a specific height as needed */
+  margin: 0 auto; /* Center the container */
+}
+
+/* news text */
+.news__p {
+  line-height: 1.5 !important;
+  margin: 8px 0px 0px !important;
+  color: rgb(161, 167, 187) !important;
+  font-size: 14px !important;
+}
+
+.news__h3 {
+  line-height: 1.5 !important;
+  margin: 0px !important;
+  color: rgb(255, 255, 255) !important;
+  font-weight: 700 !important;
+  font-size: 18px !important;
+  padding-top: 5px;
+}
+
+.news__h5 {
+  line-height: 1.5;
+  margin: 0px;
+  color: rgb(255, 255, 255);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.news__item {
+  display: flex;
+  flex-direction: column;
+}
+.date__news {
+  font-size: 11px;
+  color: rgb(255, 255, 255);
+}
+
+.ligne__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 4px;
+}
+
+.time__news {
+  line-height: 1.5;
+  margin: 0px;
+  color: #a1a7bb;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.news__today {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 80px;
+}
+
+.news__todatext {
+  font-size: 18px;
+  font-weight: 700;
+  color: rgb(255, 255, 255) !important;
+}
+
+.item__list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* styling the singleItem */
+.trading__h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: rgb(255, 255, 255) !important;
+}
+.small__detail {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  padding-top: 10px;
+}
+
+.text__aligndetail {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.text__smalldetail {
+  color: rgb(118, 128, 143);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.45;
+  color: #fff;
+}
+
+.__smallspace{ 
+  padding-right: 5px;
 }

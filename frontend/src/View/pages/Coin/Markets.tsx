@@ -5,7 +5,7 @@ function Markets(props) {
   const [response, setReponse] = useState([]);
   const searchAllCoins = async () => {
     const data = await axios.get(
-      `http://localhost:8080/api/coins/markets/${props.id}`
+      `http://192.168.3.16:8080/api/coins/markets/${props.id}`
     );
     setReponse(data.data.markets);
   };

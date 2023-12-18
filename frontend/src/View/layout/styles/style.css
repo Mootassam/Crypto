@@ -1,13 +1,70 @@
-.header {
-  background-color: black;
-  padding: 20px;
+.app__header {
+  background-color: #203040;
   width: 100%;
-  height: 30px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  align-self: center;
+  align-content: center;
+  justify-content: space-between;
+  padding-left: 5%;
+  padding-right: 5%;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.header__search {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  align-items: flex-end;
+  align-self: flex-end;
+  justify-content: flex-end;
 }
 .children__content {
   align-items: center;
   justify-content: center;
   max-width: 100%;
-  margin-left: 5%;
-  margin-right: 5%;
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+/* styles the tabbarBottom */
+.tabbottomNavigator {
+  position: fixed;
+  background-color: #2e3142;
+  height: 60px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 1;
+  bottom: 0;
+}
+
+.text__link {
+  color: #b1b4c3;
+  font-size: 13px;
+}
+.text__active {
+  color: #aed651 !important;
+  font-size: 13px;
+}
+.singleTab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.left__header {
+  display: flex;
+  align-items: center;
+  gap: 30px;
 }

@@ -18,7 +18,7 @@ function PortfolioMode() {
             <p>+$750.62(1.81%)</p>
           </div>
           <div className="loss">
-            <p>24H change</p>
+            <p>Total Profit/Loss</p>
             <p>+$750.62(1.81%)</p>
           </div>
         </div>

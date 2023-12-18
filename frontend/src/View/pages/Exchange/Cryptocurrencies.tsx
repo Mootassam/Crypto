@@ -9,7 +9,7 @@ function Cryptocurrencies(props) {
   const searchAllCoins = async () => {
     try {
       const data = await axios.get(
-        `http://localhost:8080/api/exchange/cryptocurrencies/${props.id}`
+        `http://192.168.3.16:8080/api/exchange/cryptocurrencies/${props.id}`
       );
       setResponse(data.data.coins);
     } catch (error) {

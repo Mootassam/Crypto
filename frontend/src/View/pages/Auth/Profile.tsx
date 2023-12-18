@@ -8,71 +8,76 @@ function Profile() {
 
         <div className="profile__box">
           <span>Detaills</span>
-          <div>
-            <div>
+          <div className="ligne__profile">
+            <div className="account__circle">
               <img src="" alt="" />
             </div>
-            <div>
+            <div className="circle__detail">
               <label htmlFor="">Account Details</label>
+
+              <div>
+                <i className="fas fa-chevron-right"></i>
+              </div>
             </div>
           </div>
         </div>
 
         <div className="profile__box">
           <span>Settings</span>
-          <div>
-            <div>
+          <div className="ligne__profile">
+            <div className="account__circle">
               <img src="" alt="" />
             </div>
-            <div>
-              <label htmlFor="">Currency</label>
-            </div>
-          </div>
-          <div>
-            <div>
-              <img src="" alt="" />
-            </div>
-            <div>
-              <label htmlFor=""> language</label>
-            </div>
-          </div>
-          <div>
-            <div>
-              <img src="" alt="" />
-            </div>
-            <div>
-              <label htmlFor="">Theme Details</label>
-            </div>
-          </div>
-          <div>
-            <div>
-              <img src="" alt="" />
-            </div>
-            <div>
+            <div className="circle__detail">
               <label htmlFor="">Hide balances</label>
-            </div>
-          </div>
-        </div>
 
-        <div className="profile__box">
-          <span>Support</span>
-          <div>
-            <div>
-              <img src="" alt="" />
-            </div>
-            <div>
-              <label htmlFor="">Contact Supports</label>
+              <div>
+                <i className="fas fa-chevron-right"></i>
+              </div>
             </div>
           </div>
-          <div>
-            <div>
+
+          <div className="ligne__profile">
+            <div className="account__circle">
               <img src="" alt="" />
             </div>
-            <div>
-              <label htmlFor="">Visit Support Center</label>
+            <div className="circle__detail">
+              <label htmlFor="">Hide balances</label>
+
+              <div>
+                <i className="fas fa-chevron-right"></i>
+              </div>
+            </div>
+          </div>
+          <div className="ligne__profile">
+            <div className="account__circle">
+              <img src="" alt="" />
+            </div>
+            <div className="circle__detail">
+              <label htmlFor="">Hide balances</label>
+
+              <div>
+                <i className="fas fa-chevron-right"></i>
+              </div>
+            </div>
+          </div>
+
+          <div className="ligne__profile">
+            <div className="account__circle">
+              <img src="" alt="" />
+            </div>
+            <div className="circle__detail">
+              <label htmlFor="">Hide balances</label>
+
+              <div>
+                <i className="fas fa-chevron-right"></i>
+              </div>
             </div>
           </div>
         </div>
+     
+
+       
 
         <div className="profile__logout">
           <span>Logout</span>

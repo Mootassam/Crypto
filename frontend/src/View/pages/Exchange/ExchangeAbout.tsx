@@ -7,7 +7,7 @@ function ExchangeAbout(props) {
   
   const searchAllCoins = async () => {
     try {
-      const data = await axios.get(`http://localhost:8080/api/exchange/overview/${props.id}`);
+      const data = await axios.get(`http://192.168.3.16:8080/api/exchange/overview/${props.id}`);
       setResponse(data.data.exchange.links);
       setAbout(data.data.exchange);
     } catch (error) {

@@ -8,15 +8,139 @@
   margin-bottom: 65px;
 }
 
-.tabbottomNavigator {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  background-color: #000;
-  color: white;
-  padding: 15px 0px;
+.app__switchtab {
+  background-color: #203040;
   width: 100%;
+  height: 50px;
+  color: white;
   position: fixed;
+  left: 0;
+  right: 0;
+}
+
+.app__switchtab nav::after {
+  content: "";
+  background-color: #000;
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  top: 49px;
+  filter: blur(0.5px);
+}
+
+.app__switchtab nav label {
+  position: relative;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  line-height: 50px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+#news:checked ~ nav label .news,
+#trading:checked ~ nav label .trading,
+#bitcoin:checked ~ nav label .bitcoin,
+#blockchain:checked ~ nav label .blockchain,
+#ethereum:checked ~ nav label .ethereum,
+#altcoins:checked ~ nav label .altcoins,
+#metaverse:checked ~ nav label .metaverse {
+  color: #6f55ca;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+.app__switchtab nav .slider {
+  position: absolute;
+  height: 4.5px;
+  background-color: #6f55ca;
+  border-radius: 20px;
+  width: 20%;
   z-index: 1;
   bottom: 0;
+  left: 0;
+  transition: all 0.3s ease;
+  filter: blur(0.4px);
 }
+
+#news:checked ~ nav .slider {
+  left: 0%;
+}
+#trading:checked ~ nav .slider {
+  left: 13%;
+}
+#bitcoin:checked ~ nav .slider {
+  left: 23%;
+}
+#blockchain:checked ~ nav .slider {
+  left: 23%;
+}
+#ethereum:checked ~ nav .slider {
+  left: 50%;
+}
+#altcoins:checked ~ nav .slider {
+  left: 71%;
+}
+#metaverse:checked ~ nav .slider {
+  left: 92%;
+}
+
+#news:checked ~ nav .news {
+  color: #6f55ca;
+}
+#trading:checked ~ nav .trading {
+  color: #6f55ca;
+}
+#bitcoin:checked ~ nav .bitcoin {
+  color: #6f55ca;
+}
+
+#blockchain:checked ~ nav .blockchain {
+  color: #6f55ca;
+}
+
+#ethereum:checked ~ nav .ethereum {
+  color: #6f55ca;
+}
+
+#altcoins:checked ~ nav .altcoins {
+  color: #6f55ca;
+}
+
+#metaverse:checked ~ nav .metaverse {
+  color: #6f55ca;
+}
+
+/* Add this CSS for responsive styles */
+.app__switchtab nav {
+  display: flex;
+
+
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  position: relative;
+
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  white-space: nowrap;
+  -ms-overflow-style: none; /* Hide scrollbar on IE and Edge */
+  scrollbar-width: none; /* Hide scrollbar on Firefox */
+}
+
+.app__switchtab nav::-webkit-scrollbar {
+  display: none; /* Hide scrollbar on WebKit browsers */
+}
+
+.app__switchtab nav label {
+  scroll-snap-align: start;
+}
+
+/* Additional styling for active tab */
+
+/* Hide radio buttons for smaller screens */
