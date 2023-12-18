@@ -228,6 +228,16 @@
   color: #fff;
 }
 
-.__smallspace{ 
+.__smallspace {
   padding-right: 5px;
+}
+
+/* styling the detaill explore */
+
+.singledetaill__subtitle {
+  border-left: 9px solid #aed651;
+  border-radius: 8px;
+  margin-bottom: 20px;
+margin-top: 20px;
+  padding: 10px 0 10px 15px;
 }

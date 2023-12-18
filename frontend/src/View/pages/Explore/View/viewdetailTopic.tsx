@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import removeHrefFromContent from "../../../../View/shared/removeLink";
 import SingleItem from "../SingleItem";
+import Dates from "../../../../View/shared/utils/Dates";
 
 function ViewdetailTopic() {
   const { id } = useParams();
@@ -22,17 +23,26 @@ function ViewdetailTopic() {
   return (
     <div>
       <h3>{response?.title}</h3>
-      <p>{response?.author.name}</p>
-      <p className="p__singledetail">{response?.created_at}</p>
-      <p className="p__singledetail">{response?.updated_at}</p>
-      <p className="p__singledetail">{response?.meta}</p>
+      <p>By {response?.author.name}</p>
+      <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+        <p className="p__singledetail">
+          Created {Dates.Monthago(response?.created_at)}
+        </p>
+        <p className="p__singledetail">
+          last upated {Dates.Monthago(response?.updated_at)}
+        </p>
+      </div>
+
+      <div className="singledetaill__subtitle">
+        <p className="p__singledetail">{response?.meta}</p>
+      </div>
       <img
         src={`https://academy-public.coinmarketcap.com/${response?.image.thumbnail}`}
         alt=""
       />
 
       {removeHrefFromContent(response?.content)}
-      <h3>Related Topics</h3>
+      <h3 style={{ paddingBottom: 10 }}>Related Topics</h3>
 
       <SingleItem response={response?.related} />
     </div>
