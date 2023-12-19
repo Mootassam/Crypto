@@ -238,6 +238,57 @@
   border-left: 9px solid #aed651;
   border-radius: 8px;
   margin-bottom: 20px;
-margin-top: 20px;
+  margin-top: 20px;
   padding: 10px 0 10px 15px;
+}
+
+/* styling the price detaill coin */
+.buysell {
+  display: flex;
+  background-color: #2e3142;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  padding: 15px;
+  justify-content: space-around;
+  gap: 15px;
+  margin: auto;
+}
+
+.buy,
+.sell {
+  padding: 15px;
+  display: grid;
+  place-items: center;
+  color: white;
+  font-weight: bold;
+  border-radius: 3px;
+}
+.buy {
+  background-color: #13b351;
+  width: 90%;
+}
+.sell {
+  background-color: #de3232;
+  width: 90%;
+}
+
+.box__detail {
+  background-color: #2e3142;
+  padding: 15px;
+}
+
+.coins__detail {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pricedetaill {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }

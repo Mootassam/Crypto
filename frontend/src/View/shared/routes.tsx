@@ -19,6 +19,21 @@ const privateRoutes = [
     loader: () => import("../pages/Trades/TradesPage"),
     exact: true,
   },
+
+  {
+    path: "/explore",
+    loader: () => import("../pages/Explore/ExplorePage"),
+    exact: true,
+  },
+
+  {
+    path: "/profile",
+    loader: () => import("../pages/Auth/Profile"),
+    exact: true,
+  },
+];
+
+const screenRoutes = [
   {
     path: "/exchange/:id",
     loader: () => import("../pages/Exchange/exchangePage"),
@@ -29,18 +44,8 @@ const privateRoutes = [
     exact: true,
   },
   {
-    path: "/explore",
-    loader: () => import("../pages/Explore/ExplorePage"),
-    exact: true,
-  },
-  {
     path: "/explore/detail/:id",
     loader: () => import("../pages/Explore/View/viewdetailTopic"),
-    exact: true,
-  },
-  {
-    path: "/profile",
-    loader: () => import("../pages/Auth/Profile"),
     exact: true,
   },
 ];
@@ -59,4 +64,5 @@ export default {
   privateRoutes,
   publicRoutes,
   simpleRoute,
+  screenRoutes,
 };

@@ -4,6 +4,7 @@ import PrivateRoute from "./PrivateRoute";
 import routes from "../routes";
 import lazyRouter from "../Lazyroutes";
 import PublicRoute from "./PublicRoute";
+import ScreenRoute from "./ScreenRoute";
 
 function RoutesComponent() {
   const currentUser = "123456789";
@@ -21,6 +22,16 @@ function RoutesComponent() {
       ))}
       {routes.privateRoutes.map((route) => (
         <PrivateRoute
+          exact
+          key={route.path}
+          path={route.path}
+          component={lazyRouter({ loader: route.loader })}
+          currentUser={currentUser}
+        />
+      ))}
+
+      {routes.screenRoutes.map((route) => (
+        <ScreenRoute
           exact
           key={route.path}
           path={route.path}

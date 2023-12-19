@@ -33,6 +33,7 @@ function ListCoins(props) {
           {response.map((item, index) => (
             <tr key={index}>
               <Link
+                key={index}
                 to={`coin/${item.uuid}`}
                 style={{
                   textDecoration: "none",
@@ -43,14 +44,15 @@ function ListCoins(props) {
               >
                 <td
                   style={{
-                    display: "flex",
-                    gap: 10,
+                    display: "grid",
+                    gridTemplateColumns: "repeat(3, 23% auto auto)", // Three columns with specified sizes
+                    gridTemplateRows: "auto", // Automatic row sizing
+                    // Add a gap between columns and rows
                     justifyContent: "flex-start",
                     width: "40%",
                     textAlign: "start",
                   }}
                 >
-                
                   <div>{index + 1}</div>
                   <div
                     style={{ display: "flex", alignItems: "center", gap: 10 }}
@@ -58,9 +60,12 @@ function ListCoins(props) {
                     <img
                       src={item.iconUrl}
                       alt={item.name}
-                      style={{ width: 20, height: 20 }}
+                      style={{ width: 30, height: 30 }}
                     />
-                    <p>{item.name}</p>
+                    <div>
+                      <p>{item.name}</p>
+                      <p style={{ fontSize: 11 }}>{item.symbol}</p>
+                    </div>
                   </div>
                 </td>
 

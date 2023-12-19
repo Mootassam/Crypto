@@ -4,7 +4,6 @@ import "../styles/styles.css";
 import Price from "./Price";
 import Abouts from "./Abouts";
 import Exchanges from "./Exchanges";
-import Market from "../Markets/Market";
 import Markets from "./Markets";
 function Coin() {
   const { id } = useParams();
