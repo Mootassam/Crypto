@@ -119,7 +119,6 @@ input[type="radio"] {
 .app__switchtab nav {
   display: flex;
 
-
   align-items: center;
   justify-content: space-around;
   width: 100%;
@@ -144,3 +143,34 @@ input[type="radio"] {
 /* Additional styling for active tab */
 
 /* Hide radio buttons for smaller screens */
+
+/* styling the porfolio */
+
+table {
+  color: #b1b4c3;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+tr {
+  display: flex;
+  word-wrap: break-word;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  border-bottom: 1px solid #2e3142;
+}
+
+tbody {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+td {
+  align-items: center;
+  display: flex;
+  padding: 10px;
+  box-sizing: border-box;
+}

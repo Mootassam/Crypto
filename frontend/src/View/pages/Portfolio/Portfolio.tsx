@@ -12,14 +12,11 @@ function Portfolio() {
           alignItems: "center",
           justifyContent: "center",
         }}
-      >
-        <h3>My Portfolio</h3>
-      </div>
+      ></div>
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <div onClick={(e) => setActive("wachlist")}> wachList Mode</div>
         <div onClick={(e) => setActive("portfolio")}> Portfolio Mode</div>
       </div>
-
       <div className="">
         {active === "wachlist" && <WachListMode />}
         {active === "portfolio" && <PortfolioMode />}

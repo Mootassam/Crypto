@@ -37,7 +37,7 @@ function Markets(props) {
           </div>
           <div>
             <p>{item["24hVolume"]}</p>
-      
+
             {item.price}
           </div>
         </div>

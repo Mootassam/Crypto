@@ -30,10 +30,11 @@ function Price(props) {
       allow_symbol_change: false,
       save_image: false,
       doNotStoreSettings: false,
+      backgroundColor: "",
 
-      horztouchdrag: true,
+      horztouchdrag: "",
       verttouchdrag: true,
-  
+
       extended_hours: "",
       hideideasbutton: false,
       withdateranges: false,
@@ -72,7 +73,7 @@ function Price(props) {
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <img src={response.iconUrl} width={40} height={40} />
+          <img src={response.iconUrl} style={{ width: 60, height: 60 }} />
           <div>
             <p> {response.name}</p>
             <p>{response.symbol}</p>
@@ -90,7 +91,7 @@ function Price(props) {
       <br />
       <p dangerouslySetInnerHTML={{ __html: response.description }} />
 
-      <div className="tradingview-widget-container" id="tvchart"></div>
+      <div className="tradingview-widget-container" id="tvchart" style={{ width: '100%', height: 360 }}></div>
     </div>
   );
 }
