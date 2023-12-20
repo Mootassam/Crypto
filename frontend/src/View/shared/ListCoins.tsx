@@ -5,6 +5,7 @@ import {
   SparklinesLine,
   SparklinesNormalBand,
 } from "react-sparklines";
+import Currency from "./utils/Currency";
 
 function ListCoins(props) {
   const changeColor = (item) => {
@@ -24,9 +25,9 @@ function ListCoins(props) {
       <table>
         <thead>
           <tr>
-            <th style={{ textAlign: "start", width: "40%" }}>All coins</th>
-            <th style={{ textAlign: "end", width: "40%" }}>Price</th>
-            <th style={{ textAlign: "center", width: "20%" }}>3m</th>
+            <th style={{ textAlign: "start", width: "25%" }}>All coins</th>
+            <th style={{ textAlign: "end", width: "30%" }}>Price</th>
+            <th style={{ textAlign: "center", width: "20%" }}>1h</th>
           </tr>
         </thead>
         <tbody>
@@ -39,6 +40,7 @@ function ListCoins(props) {
                   textDecoration: "none",
                   display: "flex",
                   width: "100%",
+                  justifyContent: "space-between",
                   color: "#b1b4c3",
                 }}
               >
@@ -64,18 +66,33 @@ function ListCoins(props) {
                     />
                     <div>
                       <p>{item.name}</p>
-                      <p style={{ fontSize: 11 }}>{item.symbol}</p>
+                      <p style={{ fontSize: 13, color: "#60A0C4" }}>
+                        {item.symbol}
+                      </p>
                     </div>
                   </div>
                 </td>
 
-                <td style={{ width: "40%", justifyContent: "end" }}>
-                  241,654.36
+                <td
+                  style={{
+                    display: "flex",
+                    width: "45%",
+                    justifyContent: "center",
+                    flexDirection: "column",
+                    textAlign: "start",
+                    alignItems: "end",
+                  }}
+                >
+                  <p> {Currency.formatNumber(item?.price)}</p>
+
+                  <p style={{ fontSize: 13, color: "#60A0C4" }}>
+                    {" "}
+                    {Currency.formatNumber(item?.marketCap)}
+                  </p>
                 </td>
                 <td
                   style={{
                     flexDirection: "column",
-
                     width: "20%",
                   }}
                 >

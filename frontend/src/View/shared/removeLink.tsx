@@ -11,6 +11,7 @@ function removeHrefAndSentenceFromContent(content) {
   // Find all anchor tags within the div
   const anchorTags = tempDiv.querySelectorAll("a");
   const allp = tempDiv.querySelectorAll("p");
+  const allh1 = tempDiv.querySelectorAll("h3");
   // Remove the href attribute from each anchor tag
   anchorTags.forEach((aTag) => {
     aTag.removeAttribute("href");

@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import SingleExchange from "../Coin/SingleExchange";
 
 function Cryptocurrencies(props) {
   const { id } = props;
@@ -23,10 +24,8 @@ function Cryptocurrencies(props) {
   return (
     <div>
       Cryptocurrencies
-      {response.map((item) => (
-        <p>{item.name}</p>
-      ))}
-      {props.id}
+    
+      <SingleExchange path="coin" response={response} name="Cryptocurrencies" />
     </div>
   );
 }

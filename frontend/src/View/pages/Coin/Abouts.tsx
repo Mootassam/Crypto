@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import removeHrefAndSentenceFromContent from "../../../View/shared/removeLink";
 
 function Abouts(props) {
   const [response, setReponse] = useState([]);
@@ -17,10 +18,9 @@ function Abouts(props) {
   };
   return (
     <div>
-      <div></div>
-      About {props.id}
-      <p dangerouslySetInnerHTML={{ __html: response.content }} />
-      {response.concat}
+      <br />
+      {removeHrefAndSentenceFromContent(response?.content)}
+      {response?.concat}
     </div>
   );
 }

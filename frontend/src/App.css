@@ -169,8 +169,9 @@ tbody {
   align-items: center;
 }
 td {
-  align-items: center;
   display: flex;
   padding: 10px;
   box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
 }

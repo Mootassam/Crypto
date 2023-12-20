@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import SingleExchange from "./SingleExchange";
 
 function Markets(props) {
   const [response, setReponse] = useState([]);
@@ -17,31 +18,13 @@ function Markets(props) {
   };
   return (
     <div>
-      <div>
-        <input type="text" placeholder="Search" />
-        <button onClick={search}>search</button>
-      </div>
-      Markets {props.id}
-      {response.map((item) => (
-        <div
-          className=""
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            textAlign: "end",
-          }}
-        >
-          <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
-            <img src={item.exchange.iconUrl} alt="" width={30} height={30} />
-            {item.exchange.name}
-          </div>
-          <div>
-            <p>{item["24hVolume"]}</p>
-
-            {item.price}
-          </div>
-        </div>
-      ))}
+      <br />
+      <SingleExchange
+        response={response}
+        path="/exchange"
+        markets="markets"
+        name="Markets"
+      />
     </div>
   );
 }

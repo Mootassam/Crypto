@@ -18,7 +18,7 @@ const routes = express.Router();
 app.get("/api/coins", async (req, res) => {
   try {
     const response = await axios.get(
-      "https://coinranking.com/api/v2/coins?offset=0&orderBy=marketCap&limit=50&orderDirection=desc&referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=1h&search="
+      "https://coinranking.com/api/v2/coins?offset=0&orderBy=marketCap&limit=50&orderDirection=desc&referenceCurrencyUuid=6mUvpzCc2lFo&timePeriod=1h&search="
     );
 
     res.status(200).json(response.data.data);
@@ -34,7 +34,7 @@ app.get("/api/coins/price/:id", async (req, res) => {
   try {
     const id = req.params.id;
     const response = await axios.get(
-      `https://coinranking.com/api/v2/coin/${id}?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h`
+      `https://coinranking.com/api/v2/coin/${id}?referenceCurrencyUuid=6mUvpzCc2lFo&timePeriod=24h`
     );
     res.status(200).json(response.data.data);
   } catch (error) {
@@ -63,7 +63,7 @@ app.get("/api/coins/markets/:id", async (req, res) => {
   try {
     const id = req.params.id;
     const response = await axios.get(
-      `https://coinranking.com/api/v2/coin/${id}/markets?offset=0&orderDirection=desc&referenceCurrencyUuid=yhjMzLPhuIDl&limit=50
+      `https://coinranking.com/api/v2/coin/${id}/markets?offset=0&orderDirection=desc&referenceCurrencyUuid=6mUvpzCc2lFo&limit=50
       `
     );
     res.status(200).json(response.data.data);
@@ -79,7 +79,7 @@ app.get("/api/coins/exchanges/:id", async (req, res) => {
     const search = req.query.search || "";
 
     const response = await axios.get(
-      `https://coinranking.com/api/v2/coin/${id}/exchanges?offset=0&orderDirection=desc&referenceCurrencyUuid=yhjMzLPhuIDl&search=${search}`
+      `https://coinranking.com/api/v2/coin/${id}/exchanges?offset=0&orderDirection=desc&referenceCurrencyUuid=6mUvpzCc2lFo&search=${search}`
     );
     res.status(200).json(response.data.data);
   } catch (error) {
@@ -93,7 +93,7 @@ app.get("/api/exchange/overview/:id", async (req, res) => {
   try {
     const id = req.params.id;
     const response = await axios.get(
-      `https://coinranking.com/api/v2/exchange/${id}?referenceCurrencyUuid=yhjMzLPhuIDl`
+      `https://coinranking.com/api/v2/exchange/${id}?referenceCurrencyUuid=6mUvpzCc2lFo`
     );
     res.status(200).json(response.data.data);
   } catch (error) {
@@ -107,7 +107,7 @@ app.get("/api/exchange/cryptocurrencies/:id", async (req, res) => {
   const id = req.params.id;
   try {
     const response = await axios.get(
-      `https://coinranking.com/api/v2/exchange/${id}/coins?referenceCurrencyUuid=yhjMzLPhuIDl&limit=50&offset=0&orderDirection=desc`
+      `https://coinranking.com/api/v2/exchange/${id}/coins?referenceCurrencyUuid=6mUvpzCc2lFo&limit=50&offset=0&orderDirection=desc`
     );
     res.status(200).json(response.data.data);
   } catch (error) {
@@ -123,7 +123,7 @@ app.get("/api/exchanges/detail/:id", async (req, res) => {
     const search = req.query.search || "";
 
     const response = await axios.get(
-      `https://coinranking.com/api/v2/exchange/${id}/coins?referenceCurrencyUuid=hi8n6hTOv12f&limit=50&offset=0&orderDirection=desc&search=${search}`
+      `https://coinranking.com/api/v2/exchange/${id}/coins?referenceCurrencyUuid=6mUvpzCc2lFo&limit=50&offset=0&orderDirection=desc&search=${search}`
     );
     res.status(200).json(response.data.data);
   } catch (error) {
@@ -137,7 +137,7 @@ app.get("/api/exchanges/market/:id", async (req, res) => {
   try {
     const id = req.params.id;
     const response = await axios.get(
-      `https://coinranking.com/api/v2/exchange/${id}/markets?offset=0&orderDirection=desc&referenceCurrencyUuid=yhjMzLPhuIDl&limit=50`
+      `https://coinranking.com/api/v2/exchange/${id}/markets?offset=0&orderDirection=desc&referenceCurrencyUuid=6mUvpzCc2lFo&limit=50`
     );
     res.status(200).json(response.data.data);
   } catch (error) {
@@ -170,6 +170,28 @@ app.get("/api/explore/topic/:id", async (req, res) => {
       `https://coinmarketcap.com/academy/_next/data/nD9fmJNJDqGlUB4iXiXJq/en/article/${id}.json?slug=${id}`
     );
     res.status(200).json(response.data.pageProps.article);
+  } catch (error) {
+    console.error("Error fetching coin data:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+app.post("/api/explore/news/", async (req, res) => {
+  try {
+    const data = {
+      "mode": "LATEST",
+      "page": 1,
+      "size": 20,
+      "newsTypes": [
+        "NEWS",
+        "ALEXANDRIA"
+      ]
+    };
+    const response = await axios.post(
+      `https://api.coinmarketcap.com/aggr/v4/content/user`,
+      data
+    );
+    res.status(200).json(response.data);
   } catch (error) {
     console.error("Error fetching coin data:", error);
     res.status(500).json({ error: "Internal Server Error" });

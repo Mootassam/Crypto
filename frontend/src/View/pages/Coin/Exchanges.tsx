@@ -1,6 +1,8 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Currency from "../../../View/shared/utils/Currency";
+import SingleExchange from "./SingleExchange";
 
 function Exchanges(props) {
   const [response, setResponse] = useState([]);
@@ -35,39 +37,9 @@ function Exchanges(props) {
 
   return (
     <div>
-      <div>
-        <input
-          type="text"
-          placeholder="Search"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
-        <button onClick={fetchExchanges}>Search</button>
-      </div>
       <br />
-      {response.map((item) => (
-        <Link to={`/exchange/${item.uuid}`} style={{ textDecoration: "none" }}>
-          <div
-            key={item.id}
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              textAlign: "end",
-              marginBottom: 15,
-            }}
-          >
-            <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
-              <img src={item.iconUrl} alt="" width={30} height={30} />
-              {item.name}
-            </div>
 
-            <div>
-              <p>{item["24hVolume"]}</p>
-              {item.price}
-            </div>
-          </div>
-        </Link>
-      ))}
+      <SingleExchange path="exchange" response={response} name="Exhanges" />
     </div>
   );
 }

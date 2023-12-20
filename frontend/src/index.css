@@ -44,3 +44,9 @@ h3 {
   color: rgb(161, 167, 187);
   font-size: 14px !important;
 }
+
+hr {
+  margin: 15px 0;
+  background-color: #10346e !important;
+}
+

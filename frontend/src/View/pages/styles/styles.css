@@ -292,3 +292,11 @@
   flex-direction: column;
   gap: 20px;
 }
+
+.live {
+  width: max-content;
+  align-self: flex-end;
+  padding: 3px 9px;
+  border: 2px solid #2e3142;
+  font-size: 12px;
+}

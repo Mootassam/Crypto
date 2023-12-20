@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import "../styles/styles.css";
+import Currency from "../../../View/shared/utils/Currency";
 function Price(props) {
   const [response, setReponse] = useState([]);
   const [link, setLinks] = useState([]);
@@ -85,8 +86,10 @@ function Price(props) {
         <div
           style={{ display: "flex", flexDirection: "column", textAlign: "end" }}
         >
-          {/* <h2>{response.price}</h2> */}
-          <p>Live</p>
+          <h3>{Currency.formatNumber(response?.price)}</h3>
+          <div className="live">
+            <p>Live</p>
+          </div>
         </div>
       </div>
 
@@ -97,6 +100,7 @@ function Price(props) {
         id="tvchart"
         style={{ width: "100%", height: 460 }}
       ></div>
+      <br />
       <div className="pricedetaill">
         <div className="coins__detail">
           <p> About {response.name}</p>
@@ -115,7 +119,7 @@ function Price(props) {
               <div
                 style={{
                   display: "flex",
-                  paddingBottom: 7,
+                  paddingBottom: 10,
                   justifyContent: "space-between",
                 }}
               >
@@ -127,7 +131,7 @@ function Price(props) {
                   style={{ textDecoration: "none" }}
                   target="_blank"
                 >
-                  <i className="fas fa-link"></i>
+                  <i className="fas fa-link" style={{ color: "white" }}></i>
                 </a>
               </div>
             ))}
