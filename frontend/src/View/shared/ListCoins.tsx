@@ -66,7 +66,7 @@ function ListCoins(props) {
                     />
                     <div>
                       <p>{item.name}</p>
-                      <p style={{ fontSize: 13, color: "#60A0C4" }}>
+                      <p style={{ fontSize: 13, color: "#60A0c4" }}>
                         {item.symbol}
                       </p>
                     </div>
@@ -85,7 +85,7 @@ function ListCoins(props) {
                 >
                   <p> {Currency.formatNumber(item?.price)}</p>
 
-                  <p style={{ fontSize: 13, color: "#60A0C4" }}>
+                  <p style={{ fontSize: 13, color: "#60A0c4" }}>
                     {" "}
                     {Currency.formatNumber(item?.marketCap)}
                   </p>

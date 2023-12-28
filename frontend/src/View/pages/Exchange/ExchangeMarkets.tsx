@@ -25,13 +25,14 @@ function ExchangeMarkets(props) {
   }, [props.id]);
   return (
     <div>
-      Cryptocurrencies {totale}
+      <br />
       <SingleExchange
         response={response}
         path="/coin"
         markets="makets"
         base="base"
         name="Markets"
+        total={totale}
       />
     </div>
   );

@@ -179,17 +179,57 @@ app.get("/api/explore/topic/:id", async (req, res) => {
 app.post("/api/explore/news/", async (req, res) => {
   try {
     const data = {
-      "mode": "LATEST",
-      "page": 1,
-      "size": 20,
-      "newsTypes": [
-        "NEWS",
-        "ALEXANDRIA"
-      ]
+      mode: "LATEST",
+      page: 1,
+      size: 20,
+      newsTypes: ["NEWS", "ALEXANDRIA"],
     };
     const response = await axios.post(
       `https://api.coinmarketcap.com/aggr/v4/content/user`,
       data
+    );
+    res.status(200).json(response.data);
+  } catch (error) {
+    console.error("Error fetching coin data:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+// Top markets //
+
+app.get("/api/topmarket/:id", async (req, res) => {
+  try {
+    const id = req?.params?.id;
+    const response = await axios.get(
+      `https://coinranking.com/api/v2/exchange/-zdvbieRdZ/markets?offset=0&referenceCurrencyUuid=6mUvpzCc2lFo&limit=5`
+    );
+    res.status(200).json(response.data);
+  } catch (error) {
+    console.error("Error fetching coin data:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+// TopCurrenciesby volume
+app.get("/api/topcurrenciesbyvolume/:id", async (req, res) => {
+  try {
+    const id = req?.params?.id;
+    const response = await axios.get(
+      `https://coinranking.com/api/v2/exchange/-zdvbieRdZ/coins?referenceCurrencyUuid=6mUvpzCc2lFo&limit=5&offset=0&orderDirection=desc`
+    );
+    res.status(200).json(response.data);
+  } catch (error) {
+    console.error("Error fetching coin data:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+// topCurrenciesByMarket
+app.get("/api/topcurrenciesbymarket/:id", async (req, res) => {
+  try {
+    const id = req?.params?.id;
+    const response = await axios.get(
+      `https://coinranking.com/api/v2/exchange/-zdvbieRdZ/coins?referenceCurrencyUuid=6mUvpzCc2lFo&limit=5&offset=0&orderBy=numberOfMarkets&orderDirection=desc`
     );
     res.status(200).json(response.data);
   } catch (error) {

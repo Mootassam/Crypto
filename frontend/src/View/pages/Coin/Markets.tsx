@@ -4,11 +4,15 @@ import SingleExchange from "./SingleExchange";
 
 function Markets(props) {
   const [response, setReponse] = useState([]);
+  const [totale, setTotale] = useState("");
+
   const searchAllCoins = async () => {
     const data = await axios.get(
       `http://192.168.3.16:8080/api/coins/markets/${props.id}`
     );
     setReponse(data.data.markets);
+    setTotale(data.data.stats.total);
+
   };
   useEffect(() => {
     searchAllCoins();
@@ -24,6 +28,7 @@ function Markets(props) {
         path="/exchange"
         markets="markets"
         name="Markets"
+        total={totale}
       />
     </div>
   );

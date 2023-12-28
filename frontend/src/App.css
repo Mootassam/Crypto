@@ -156,6 +156,7 @@ tr {
   display: flex;
   word-wrap: break-word;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
   align-items: center;
   border-bottom: 1px solid #2e3142;

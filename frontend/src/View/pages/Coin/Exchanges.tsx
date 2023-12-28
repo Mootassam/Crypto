@@ -7,6 +7,7 @@ import SingleExchange from "./SingleExchange";
 function Exchanges(props) {
   const [response, setResponse] = useState([]);
   const [search, setSearch] = useState("");
+  const [totale, setTotale] = useState("");
 
   const searchAllCoins = async () => {
     try {
@@ -14,6 +15,8 @@ function Exchanges(props) {
         `http://192.168.3.16:8080/api/coins/exchanges/${props.id}`
       );
       setResponse(data.data.exchanges);
+      setTotale(data.data.stats.total);
+
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -39,7 +42,12 @@ function Exchanges(props) {
     <div>
       <br />
 
-      <SingleExchange path="exchange" response={response} name="Exhanges" />
+      <SingleExchange
+        path="exchange"
+        response={response}
+        name="Exhanges"
+        total={totale}
+      />
     </div>
   );
 }

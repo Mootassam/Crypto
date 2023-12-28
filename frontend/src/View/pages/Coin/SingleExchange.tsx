@@ -3,7 +3,7 @@ import Currency from "../../../View/shared/utils/Currency";
 import { Link } from "react-router-dom";
 
 function SingleExchange(props) {
-  const { path, response, markets, base, name } = props;
+  const { path, response, markets, base, name, total } = props;
 
   const showPath = (item) => {
     let paths;
@@ -18,8 +18,11 @@ function SingleExchange(props) {
     <table>
       <thead>
         <tr style={{ paddingBottom: 6 }}>
-          <th style={{ textAlign: "start" }}>{name}</th>
-          <th style={{ textAlign: "end" }}>24h volumes</th>
+          <th style={{ textAlign: "start", width: "50%" }}>
+            {name} ({total})
+          </th>
+          <th style={{ textAlign: "end", width: "50%" }}>24h volumes</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -41,7 +44,6 @@ function SingleExchange(props) {
                   display: "grid",
                   gridTemplateColumns: "repeat(3, 23% auto auto)", // Three columns with specified sizes
                   gridTemplateRows: "auto", // Automatic row sizing
-                  // Add a gap between columns and rows
                   justifyContent: "flex-start",
                   width: "40%",
                   textAlign: "start",
@@ -62,7 +64,6 @@ function SingleExchange(props) {
                       style={{ width: 30, height: 30 }}
                     />
                   )}
-
                   <div>
                     {base ? (
                       <p>
@@ -72,13 +73,13 @@ function SingleExchange(props) {
                       ""
                     )}
                     {markets ? (
-                      <p style={base ? { fontSize: 13, color: "#60A0C4" } : {}}>
+                      <p style={base ? { fontSize: 13, color: "#60A0c4" } : {}}>
                         {item.exchange.name}
                       </p>
                     ) : (
                       `${item?.name}`
                     )}
-                    <p style={{ fontSize: 13, color: "#60A0C4" }}>
+                    <p style={{ fontSize: 13, color: "#60A0c4" }}>
                       {item.symbol}
                     </p>
                   </div>
@@ -88,7 +89,7 @@ function SingleExchange(props) {
               <td
                 style={{
                   display: "flex",
-                  width: "35%",
+                  width: "60%",
                   justifyContent: "end",
                   flexDirection: "column",
                   textAlign: "start",
@@ -96,10 +97,15 @@ function SingleExchange(props) {
                 }}
               >
                 <p> {Currency.formatNumber(item["24hVolume"])}</p>
-
-                <p style={{ fontSize: 13, color: "#60A0C4" }}>
+                <p style={{ fontSize: 13, color: "#60A0c4" }}>
                   {Currency.formatNumber(item?.price)}
                 </p>
+              </td>
+              <td style={{ width: "0%" }}>
+                <img
+                  src="/icons/icon.png"
+                  style={{ width: 20, height: 20, objectFit: "contain" }}
+                />
               </td>
             </Link>
           </tr>
