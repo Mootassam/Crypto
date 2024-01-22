@@ -8,6 +8,7 @@ import Markets from "./Markets";
 function Coin() {
   const { id } = useParams();
   const [active, setActive] = useState("price");
+  const [name, setName] = useState("");
 
   return (
     <div>
@@ -22,7 +23,7 @@ function Coin() {
           </Link>
         </div>
         <div className="page__name">
-          <span>Page Name</span>
+          <span>Currency Detail</span>
         </div>
         <div></div>
       </div>

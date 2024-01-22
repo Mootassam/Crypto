@@ -12,57 +12,60 @@ function Price(props) {
     setReponse(data.data.coin);
     setLinks(data?.data?.coin?.links);
   };
+  useEffect(() => {
+    const fetchData = async () => {
+      await searchAllCoins();
+      showingChart();
+    };
+
+    fetchData();
+  }, []);
 
   const showingChart = () => {
-    new TradingView.widget({
-      autosize: true,
-      symbol: `BINANCE:ETHBTC`,
-      timezone: "Asia/India",
-      theme: "dark",
-      toolbar_bg: "#f1f3f6",
-      enable_publishing: false,
-      hideideas: true,
-      hide_top_toolbar: false,
-      hide__symbol: true,
-      details: false,
-      studies: [],
-      container_id: "tvchart",
-      range: false,
-      hide_legend: true,
-      hide_side_toolbar: true,
-      allow_symbol_change: false,
-      save_image: false,
-      doNotStoreSettings: false,
-      backgroundColor: "",
-
-      horztouchdrag: "",
-      verttouchdrag: true,
-
-      extended_hours: "",
-      hideideasbutton: false,
-      withdateranges: false,
-      hide_volume: false,
-      padding: "",
-      show_popup_button: false,
-      studies_overrides: false,
-      publish_source: false,
-
-      venue: false,
-      symbology: false,
-      whotrades: false,
-      referral_id: false,
-      no_referral_id: false,
-      fundamental: false,
-      percentage: false,
-      utm_source: false,
-      utm_medium: false,
-      utm_campaign: false,
-    });
+    if (response && response.symbol) {
+      new TradingView.widget({
+        autosize: true,
+        symbol: `BINANCE:${response?.symbol}USDT`,
+        timezone: "Asia/India",
+        theme: "dark",
+        toolbar_bg: "#f1f3f6",
+        enable_publishing: false,
+        hideideas: true,
+        hide_top_toolbar: false,
+        hide__symbol: true,
+        details: false,
+        studies: [],
+        container_id: "tvchart",
+        range: false,
+        hide_legend: true,
+        hide_side_toolbar: true,
+        allow_symbol_change: false,
+        save_image: false,
+        doNotStoreSettings: false,
+        backgroundColor: "",
+        horztouchdrag: "",
+        verttouchdrag: true,
+        extended_hours: "",
+        hideideasbutton: false,
+        withdateranges: false,
+        hide_volume: false,
+        padding: "",
+        show_popup_button: false,
+        studies_overrides: false,
+        publish_source: false,
+        venue: false,
+        symbology: false,
+        whotrades: false,
+        referral_id: false,
+        no_referral_id: false,
+        fundamental: false,
+        percentage: false,
+        utm_source: false,
+        utm_medium: false,
+        utm_campaign: false,
+      });
+    }
   };
-  useEffect(() => {
-    showingChart();
-    searchAllCoins();
-  }, []);
 
   return (
     <div>
