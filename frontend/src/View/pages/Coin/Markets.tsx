@@ -8,7 +8,7 @@ function Markets(props) {
 
   const searchAllCoins = async () => {
     const data = await axios.get(
-      `http://192.168.3.16:8080/api/coins/markets/${props.id}`
+      `http://192.168.90.76:8080/api/coins/markets/${props.id}`
     );
     setReponse(data.data.markets);
     setTotale(data.data.stats.total);

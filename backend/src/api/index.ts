@@ -201,7 +201,7 @@ app.get("/api/topmarket/:id", async (req, res) => {
   try {
     const id = req?.params?.id;
     const response = await axios.get(
-      `https://coinranking.com/api/v2/exchange/-zdvbieRdZ/markets?offset=0&referenceCurrencyUuid=6mUvpzCc2lFo&limit=5`
+      `https://coinranking.com/api/v2/exchange/${id}/markets?offset=0&referenceCurrencyUuid=6mUvpzCc2lFo&limit=5`
     );
     res.status(200).json(response.data);
   } catch (error) {
@@ -229,7 +229,7 @@ app.get("/api/topcurrenciesbymarket/:id", async (req, res) => {
   try {
     const id = req?.params?.id;
     const response = await axios.get(
-      `https://coinranking.com/api/v2/exchange/-zdvbieRdZ/coins?referenceCurrencyUuid=6mUvpzCc2lFo&limit=5&offset=0&orderBy=numberOfMarkets&orderDirection=desc`
+      `https://coinranking.com/api/v2/exchange/${id}/coins?referenceCurrencyUuid=6mUvpzCc2lFo&limit=5&offset=0&orderBy=numberOfMarkets&orderDirection=desc`
     );
     res.status(200).json(response.data);
   } catch (error) {

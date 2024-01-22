@@ -4,10 +4,26 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  background-color: aqua;
-  padding: 10px;
+  background-color: #2e3142;
+  color: white;
+  font-weight: bold;
+  width: 100%;
+  padding: 14px;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 
+.header__page {
+  display: flex;
+  background-color: #2e3142;
+  padding: 17px;
+  justify-content: space-between;
+  border-bottom: 1px #000 solid;
+}
+
+.coin__menue > div {
+  cursor: pointer;
+}
 /* Portfolio */
 
 .content__portfolio {

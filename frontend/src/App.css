@@ -176,3 +176,36 @@ td {
   justify-content: center;
   align-items: center;
 }
+
+/* Styling the top Markets */
+
+.binance__item {
+  display: flex;
+
+  align-items: center;
+  gap: 10px;
+}
+
+.exchange__detail {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  font-size: 14px;
+}
+
+.name__ofexchange {
+  display: flex;
+  font-size: 11px;
+}
+
+.list__ofechange {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  gap: 16px;
+}
+
+.amount__exchange {
+  color: white;
+}

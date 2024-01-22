@@ -12,7 +12,7 @@ function Exchanges(props) {
   const searchAllCoins = async () => {
     try {
       const data = await axios.get(
-        `http://192.168.3.16:8080/api/coins/exchanges/${props.id}`
+        `http://192.168.90.76:8080/api/coins/exchanges/${props.id}`
       );
       setResponse(data.data.exchanges);
       setTotale(data.data.stats.total);
@@ -26,7 +26,7 @@ function Exchanges(props) {
     try {
       const encodedSearch = encodeURIComponent(search);
       const data = await axios.get(
-        `http://192.168.3.16:8080/api/coins/exchanges/${props.id}?search=${encodedSearch}`
+        `http://192.168.90.76:8080/api/coins/exchanges/${props.id}?search=${encodedSearch}`
       );
       setResponse(data.data.exchanges);
     } catch (error) {

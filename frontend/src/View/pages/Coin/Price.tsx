@@ -7,7 +7,7 @@ function Price(props) {
   const [link, setLinks] = useState([]);
   const searchAllCoins = async () => {
     const data = await axios.get(
-      `http://192.168.3.16:8080/api/coins/price/${props.id}`
+      `http://192.168.90.76:8080/api/coins/price/${props.id}`
     );
     setReponse(data.data.coin);
     setLinks(data?.data?.coin?.links);

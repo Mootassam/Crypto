@@ -10,7 +10,7 @@ function ViewdetailTopic() {
   const [response, setResponse] = useState<any>();
   const FetchDetaill = async () => {
     const data = await axios.get(
-      `http://192.168.3.16:8080/api/explore/topic/${id}`
+      `http://192.168.90.76:8080/api/explore/topic/${id}`
     );
 
     setResponse(data.data);

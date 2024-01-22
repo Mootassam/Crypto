@@ -11,7 +11,7 @@ function ExchangeMarkets(props) {
   const searchAllCoins = async () => {
     try {
       const data = await axios.get(
-        `http://192.168.3.16:8080/api/exchanges/market/${props.id}`
+        `http://192.168.90.76:8080/api/exchanges/market/${props.id}`
       );
       setResponse(data.data.markets);
       setTotale(data.data.stats.total);

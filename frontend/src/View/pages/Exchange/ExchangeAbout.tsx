@@ -1,17 +1,20 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import Currency from "../../../View/shared/utils/Currency";
+import SingleExchange from "./SingleExchange";
 
 function ExchangeAbout(props) {
   const [response, setResponse] = useState([]);
   const [about, setAbout] = useState({});
   const [market, setMarket] = useState([]);
+  const [topCurrnencies, setTopCurrencies] = useState();
   const [currencies, setCurrencies] = useState([]);
   const [volume, setVolume] = useState([]);
 
   const searchAllCoins = async () => {
     try {
       const data = await axios.get(
-        `http://192.168.3.16:8080/api/exchange/overview/${props.id}`
+        `http://192.168.90.76:8080/api/exchange/overview/${props.id}`
       );
       setResponse(data.data.exchange);
       setAbout(data.data.exchange);
@@ -22,26 +25,32 @@ function ExchangeAbout(props) {
   const searchTopMarket = async () => {
     try {
       const data = await axios.get(
-        `http://192.168.3.16:8080/api/topmarket/${props.id}`
+        `http://192.168.90.76:8080/api/topmarket/${props.id}`
       );
-      setMarket(data.data.exchange);
-    } catch (error) {}
+      setMarket(data.data.data.markets);
+    } catch (error) {
+      console.log(error);
+    }
   };
   const searchTopcurrenciesbyMarket = async () => {
     try {
       const data = await axios.get(
-        `http://192.168.3.16:8080/api/topcurrenciesbymarket/${props.id}`
+        `http://192.168.90.76:8080/api/topcurrenciesbymarket/${props.id}`
       );
-      setMarket(data.data.exchange);
+      setTopCurrencies(data.data.exchange);
     } catch (error) {}
   };
   const searchTopcurrenciesbyvolume = async () => {
     try {
       const data = await axios.get(
-        `http://192.168.3.16:8080/api/topcurrenciesbyvolume/${props.id}`
+        `http://192.168.90.76:8080/api/topcurrenciesbyvolume/${props.id}`
       );
+      console.log(data.data.data.coins);
+
       setVolume(data.data.exchange);
-    } catch (error) {}
+    } catch (error) {
+      throw error;
+    }
   };
 
   useEffect(() => {
@@ -49,6 +58,7 @@ function ExchangeAbout(props) {
     searchTopMarket();
     searchTopcurrenciesbyMarket();
     searchTopcurrenciesbyvolume();
+    searchTopMarket();
   }, [props.id]);
 
   const SingleStats = (props) => {
@@ -99,11 +109,12 @@ function ExchangeAbout(props) {
             src={response.iconUrl}
             style={{ width: "50px", height: "50px" }}
           />
-          <h3>{response.name} exchange</h3>
+          <h3>{response.name} statistics</h3>
 
           <p key={response.id}>
-            View {response.name} exchange statistics and info, such as trading
-            volume , market share and rank,cryptocurrencies listings.
+            Statics showing an overview of {response.name} exchange, such as its
+            24h trading volume, market share and cryptocurrencies listings. View
+            exchange statistics and info, such as trading.
           </p>
         </div>
         <SingleStats
@@ -130,6 +141,8 @@ function ExchangeAbout(props) {
       </div>
 
       <div>
+        <SingleExchange response={response} market={market} />
+
         <div
           style={{
             display: "flex",
@@ -138,50 +151,37 @@ function ExchangeAbout(props) {
             marginBottom: 13,
           }}
         >
-          <h3>Top markets</h3>
+          <h3>Top Currencies by Volume</h3>
 
           <p>
             A list of top markets on {response.name} exchange based on the
             highest 24h trading volume, with their current price.
           </p>
-        </div>
-        {/* styling the table  */}
-        <div>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              width: "100%",
-              color: "white",
-            }}
-          >
-            <span>Market</span>
-            <span>24H Volume</span>
-          </div>
 
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              width: "100%",
-              color: "white",
-              borderBottom: "1px solid #fff",
-              paddingBottom: "8px",
-            }}
-          >
-            <div style={{ display: "flex" }}>
-              1 Image
-              <div style={{ display: "flex", flexDirection: "column" }}>
-                <span>BTC/FDUSD</span>
-                <span>Binance</span>
-              </div>
-            </div>
-            <div>
-              <span>172.96 billion</span>
-              <span>3.56 million</span>
-            </div>
+          <div className="">
+            <ul>
+              {market.map((item) => (
+                <li className="list__ofechange">
+                  <div className="binance__item">
+                    <div>
+                      <img
+                        src={item?.exchange?.iconUrl}
+                        style={{ width: 30 }}
+                      />
+                    </div>
+                    <div className="exchange__detail">
+                      {item.base.symbol} / {item.quote.symbol}
+                      <span className="name__ofexchange">
+                        {item.exchange.name}
+                      </span>
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
+        <SingleExchange response={response} market={market} />
       </div>
 
       <br />

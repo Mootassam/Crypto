@@ -9,7 +9,7 @@ function ExploreBlockchain(props) {
   const topic = props.topic;
   const searchTrading = async () => {
     const result = await axios.get(
-      `http://192.168.3.16:8080/api/topic/${topic}`
+      `http://192.168.90.76:8080/api/topic/${topic}`
     );
     setResponse(result.data);
     console.log(response);

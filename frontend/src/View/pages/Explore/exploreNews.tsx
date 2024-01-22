@@ -7,7 +7,7 @@ function ExploreNews(props) {
   const topic = props.topic;
   const searchNews = async () => {
     const result = await axios.post(
-      `http://192.168.3.16:8080/api/explore/news`
+      `http://192.168.90.76:8080/api/explore/news`
     );
     setResponse(result.data.data);
   };

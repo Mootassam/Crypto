@@ -30,8 +30,12 @@
   max-width: 100%;
   margin-left: 2%;
   margin-right: 2%;
-  margin-top: 60px;
   margin-bottom: 60px;
+}
+.page__name {
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
 }
 
 /* styles the tabbarBottom */
@@ -52,10 +56,8 @@
   font-size: 13px;
 }
 
-
-.active { 
+.active {
   color: #aed651 !important;
-
 }
 .singleTab {
   display: flex;
