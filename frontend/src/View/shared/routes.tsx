@@ -9,6 +9,7 @@ const privateRoutes = [
     loader: () => import("../pages/Portfolio/Portfolio"),
     exact: true,
   },
+
   {
     path: "/search",
     loader: () => import("../pages/Search/Search"),
@@ -37,6 +38,10 @@ const screenRoutes = [
   {
     path: "/exchange/:id",
     loader: () => import("../pages/Exchange/exchangePage"),
+  },
+  {
+    path: "/currency",
+    loader: () => import("../pages/Currency/CurrecnyPage"),
   },
   {
     path: "/coin/:id",

@@ -1,6 +1,6 @@
 import axios from "axios";
 import bodyParser from "body-parser";
-import express from "express";
+import express, { response } from "express";
 import helmet from "helmet";
 import cors from "cors";
 import { Server } from "ws";
@@ -234,6 +234,20 @@ app.get("/api/topcurrenciesbymarket/:id", async (req, res) => {
     res.status(200).json(response.data);
   } catch (error) {
     console.error("Error fetching coin data:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+app.get("/api/list/currency", async (req, res) => {
+  try {
+    const id = req?.query?.search;
+    console.log(id);
+    const response = await axios.get(
+      `https://coinranking.com/api/v2/reference-currencies?limit=30&offset=0&search=${id}`
+    );
+    res.status(200).json(response.data);
+  } catch (error) {
+    console.error("Error fetching currency data:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });

@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
 
 function Search() {
   return (
-    <div>Search</div>
-  )
+    <div className="search__page">
+      <div className="search__input">
+        <input type="text" placeholder="search" />
+      </div>
+    </div>
+  );
 }
 
-export default Search
+export default Search;

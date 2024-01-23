@@ -5,24 +5,31 @@ import Currency from "../../../View/shared/utils/Currency";
 function Price(props) {
   const [response, setReponse] = useState([]);
   const [link, setLinks] = useState([]);
+  const [loading, setLoading] = useState(true);
   const searchAllCoins = async () => {
-    const data = await axios.get(
-      `http://192.168.90.76:8080/api/coins/price/${props.id}`
-    );
-    setReponse(data.data.coin);
-    setLinks(data?.data?.coin?.links);
+    try {
+      setLoading(true);
+      const data = await axios.get(
+        `http://192.168.90.76:8080/api/coins/price/${props.id}`
+      );
+      setReponse(data.data.coin);
+      setLinks(data?.data?.coin?.links);
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+      console.log(error);
+    }
   };
-  useEffect(() => {
-    const fetchData = async () => {
-      await searchAllCoins();
-      showingChart();
-    };
 
-    fetchData();
-  }, []);
+  console.log("Response data", response.symbol);
 
-  const showingChart = () => {
-    if (response && response.symbol) {
+  const showingChart = async () => {
+    if (
+      !loading &&
+      response &&
+      response.symbol &&
+      response.symbol !== undefined
+    ) {
       new TradingView.widget({
         autosize: true,
         symbol: `BINANCE:${response?.symbol}USDT`,
@@ -67,6 +74,16 @@ function Price(props) {
     }
   };
 
+  useEffect(() => {
+    const fetchData = async () => {
+      await searchAllCoins();
+    };
+    fetchData();
+  }, [props.id]);
+
+  useEffect(() => {
+    showingChart();
+  }, [loading, response]);
   return (
     <div>
       <div

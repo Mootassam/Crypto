@@ -209,3 +209,15 @@ td {
 .amount__exchange {
   color: white;
 }
+
+/* stlying search currency  */
+.linkWithoutUnderline {
+  text-decoration: none !important;
+  text-decoration: none;
+  color: white;
+}
+
+.tabactive {
+  border-bottom: 3px solid #6f55ca;
+  transition: all 0.3s ease;
+}

@@ -1,5 +1,6 @@
 import React from "react";
 import "./styles/style.css";
+import { Link } from "react-router-dom";
 function Header() {
   return (
     <div className="app__header">
@@ -9,7 +10,9 @@ function Header() {
       <div>
         <span>CryptoCurrencies</span>
       </div>
-      <div>INR</div>
+      <Link to={"/currency"} className="linkWithoutUnderline">
+        <div>INR</div>
+      </Link>
     </div>
   );
 }

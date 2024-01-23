@@ -6,7 +6,7 @@ import Abouts from "./Abouts";
 import Exchanges from "./Exchanges";
 import Markets from "./Markets";
 function Coin() {
-  const { id } = useParams();
+  const { id }: any = useParams();
   const [active, setActive] = useState("price");
   const [name, setName] = useState("");
 
@@ -15,7 +15,6 @@ function Coin() {
       <div className="header__page">
         <div>
           <Link to={"/"}>
-            {" "}
             <i
               className="fas fa-long-arrow-alt-left"
               style={{ color: "white" }}
@@ -28,10 +27,30 @@ function Coin() {
         <div></div>
       </div>
       <div className="coin__menue">
-        <div onClick={() => setActive("price")}>Price</div>
-        <div onClick={() => setActive("about")}>About</div>
-        <div onClick={() => setActive("exchanges")}>Exchanges</div>
-        <div onClick={() => setActive("markets")}>Markets</div>
+        <div
+          onClick={() => setActive("price")}
+          className={active === "price" ? "tabactive" : ""}
+        >
+          Price
+        </div>
+        <div
+          onClick={() => setActive("about")}
+          className={active === "about" ? "tabactive" : ""}
+        >
+          About
+        </div>
+        <div
+          onClick={() => setActive("exchanges")}
+          className={active === "exchanges" ? "tabactive" : ""}
+        >
+          Exchanges
+        </div>
+        <div
+          onClick={() => setActive("markets")}
+          className={active === "markets" ? "tabactive" : ""}
+        >
+          Markets
+        </div>
       </div>
 
       <div className="coins__content">

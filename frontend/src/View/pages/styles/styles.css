@@ -8,11 +8,13 @@
   color: white;
   font-weight: bold;
   width: 100%;
-  padding: 14px;
+
   margin-left: 0 !important;
   margin-right: 0 !important;
 }
-
+.coin__menue > div {
+  padding: 14px;
+}
 .header__page {
   display: flex;
   background-color: #2e3142;
@@ -316,3 +318,4 @@
   border: 2px solid #2e3142;
   font-size: 12px;
 }
+
